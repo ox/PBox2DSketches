@@ -1,4 +1,4 @@
-// The Nature of Code
+// The Nature of Code (MODDD by Artem Titoulenko
 // <http://www.shiffman.net/teaching/nature>
 // Spring 2010
 // PBox2D example
@@ -46,7 +46,7 @@ void setup() {
   bullet = new Ball(width/2, -height, 25);
   bullet.killBody(); //don't just fall out of the sky.
 
-  for(int i = 0; i < random(1,5); i++) {
+  for(int i = 0; i < random(1,4); i++) {
     blobs.add(new Blob(new Vec2(random(30, width-30), random(30, height-30))));
   }
 }

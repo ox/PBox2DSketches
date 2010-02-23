@@ -1,4 +1,4 @@
-// The Nature of Code
+// The Nature of Code (MODDD by Artem Titoulenko
 // <http://www.shiffman.net/teaching/nature>
 // Spring 2010
 // PBox2D example
@@ -12,7 +12,7 @@ class Blob {
   // A list to keep track of all the points in our blob
   ArrayList skeleton;
   
-  ArrayList boxes;
+  ArrayList balls;
 
   float bodyRadius;  // The radius of each body that makes up the skeleton
   float radius;      // The radius of the entire blob
@@ -37,7 +37,7 @@ class Blob {
     bodyRadius = 3;
     
     for (int i = 0; i < 5; i++ ) {
-      boxes.add( new Ball(center.x + random(-radius*0.8, radius*0.8),center.y + random(-radius*0.8, radius*0.8), 4 ) );
+      balls.add( new Ball(center.x + random(-radius*0.8, radius*0.8),center.y + random(-radius*0.8, radius*0.8), 4 ) );
     }
 
 
@@ -99,8 +99,8 @@ class Blob {
     endShape(CLOSE);
     
     // Display all the boxes
-  for (int i = 0; i < boxes.size(); i++) {
-    Ball p = (Ball) boxes.get(i);
+  for (int i = 0; i < balls.size(); i++) {
+    Ball p = (Ball) balls.get(i);
     p.display();
   }
 

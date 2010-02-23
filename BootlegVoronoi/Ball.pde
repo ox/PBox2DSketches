@@ -1,4 +1,4 @@
-// The Nature of Code
+// The Nature of Code (MODDD by Artem Titoulenko)
 // <http://www.shiffman.net/teaching/nature>
 // Spring 2010
 // PBox2D example
