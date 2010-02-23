@@ -8,15 +8,13 @@ class Ball  {
 
   // We need to keep track of a Body and a width and height
   Body body;
-  float w;
-  float h;
+  float r;
 
   // Constructor
-  Ball(float x, float y) {
-    w = random(4,16);
-    h = random(4,16);
+  Ball(float x, float y, float r_) {
     // Add the box to the box2d world
-    makeBody(new Vec2(x,y), 4);
+    r = r_;
+    makeBody(new Vec2(x,y), r_);
   }
 
   // This function removes the particle from the box2d world
@@ -29,7 +27,7 @@ class Ball  {
     // Let's find the screen position of the particle
     Vec2 pos = box2d.getScreenPos(body);
     // Is it off the bottom of the screen?
-    if (pos.y > height+w*h) {
+    if (pos.y > height + r*2) {
       killBody();
       return true;
     }
@@ -49,7 +47,7 @@ class Ball  {
     fill(175);
     stroke(0);
     strokeWeight(1);
-    ellipse(0,0, 8,8);
+    ellipse(0,0,r*2,r*2);
     popMatrix();
   }
 

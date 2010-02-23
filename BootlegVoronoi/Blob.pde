@@ -37,7 +37,7 @@ class Blob {
     bodyRadius = 3;
     
     for (int i = 0; i < 5; i++ ) {
-      boxes.add( new Ball(center.x + random(-radius*0.8, radius*0.8),center.y + random(-radius*0.8, radius*0.8) ) );
+      boxes.add( new Ball(center.x + random(-radius*0.8, radius*0.8),center.y + random(-radius*0.8, radius*0.8), 4 ) );
     }
 
 
