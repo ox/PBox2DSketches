@@ -101,10 +101,14 @@ class Blob {
     // Display all the boxes
     for (int i = 0; i < balls.size(); i++) {
       Ball p = (Ball) balls.get(i);
+      Vec2 pos = box2d.getScreenPos(p.body);
       p.display();
+      Vec2 tmp = new Vec2(mouseX-pos.x, mouseY+pos.y);
+      p.body.setLinearVelocity( tmp..normalize()*1.5 );
     }
   }
 }
+
 
 
 

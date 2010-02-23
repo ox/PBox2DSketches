@@ -58,22 +58,3 @@ void draw() {
     wall.display();
   }
 }
-
-void keyPressed() {
-  switch(key) {
-  case 'r':
-    setup();
-    break;
-  case 'w':
-    for(int i = 0; i < 3; i++) {
-      Ball tmp = (Ball) blob.balls.get(i);
-      tmp.body.setLinearVelocity( new Vec2(0, 4f) );
-      tmp = null;
-    }
-  }
-}
-
-
-
-
-
