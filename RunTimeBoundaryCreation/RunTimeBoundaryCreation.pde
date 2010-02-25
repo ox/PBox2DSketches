@@ -40,7 +40,7 @@ void setup() {
 
   // Add a bunch of fixed boundaries
   boundaries.add(new Boundary(width/4,height-5,width/2-65,10));
-  boundaries.add(new Boundary(3*width/4,height-5,width/2-65,10));
+  boundaries.add(new Boundary(3*width/4,height-5,width/2-5,10));
   boundaries.add(new Boundary(width-5,height/2,10,height));
   boundaries.add(new Boundary(5,height/2,10,height));
   boundaries.add(new Boundary(5, 100,150,10) );
@@ -54,9 +54,9 @@ void draw() {
 
   // Only make more boxes if there are more then 500 living boxes
   //boxes.size() < 500 && (mousePressed && mouseButton == LEFT && debug) && 
-  if (second() %3 == 0 ) {
+  if (second() %3 == 0 || (mousePressed && mouseButton == LEFT && debug) ) {
     Box k;
-    if(mousePressed) k = new Box(mouseX, mouseY); else k = new Box(width/2,50);
+    if(mouseButton == LEFT) k = new Box(mouseX, mouseY); else k = new Box(width/2,50);
     boxes.add(k);
   }
 
