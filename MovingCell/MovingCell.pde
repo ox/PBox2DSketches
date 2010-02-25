@@ -31,6 +31,7 @@ void setup() {
   // Initialize box2d physics and create the world
   box2d = new PBox2D(this);
   box2d.createWorld();
+  box2d.setGravity( 0,0 );
 
   // Add some boundaries
   boundaries = new ArrayList();

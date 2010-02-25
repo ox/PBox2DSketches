@@ -36,7 +36,7 @@ class Blob {
     totalPoints = 25;
     bodyRadius = 3;
 
-    for (int i = 0; i < 3; i++ ) {
+    for (int i = 0; i < 5; i++ ) {
       balls.add( new Ball(center.x + random(-radius*0.8, radius*0.8),center.y + random(-radius*0.8, radius*0.8), 4 ) );
     }
 
@@ -50,7 +50,7 @@ class Blob {
 
       // Make each individual body
       BodyDef bd = new BodyDef();
-      bd.fixedRotation = false; // no rotation!
+      bd.fixedRotation = true; // no rotation!
       bd.position.set(box2d.screenToWorld(x,y));
       Body body = box2d.createBody(bd);
 
@@ -58,7 +58,7 @@ class Blob {
       CircleDef cd = new CircleDef();
       cd.radius = box2d.scaleScreenToWorld(bodyRadius);
       cd.density = 1.0f;
-      //cd.filter.groupIndex = -2;  // What does this do?
+      cd.filter.groupIndex = -2;  // What does this do?
 
       // Finalize the body
       body.createShape(cd);
@@ -72,8 +72,8 @@ class Blob {
     }
 
     // These parameters control how stiff vs. jiggly the blob is
-    cvjd.frequencyHz = 10.0f;
-    cvjd.dampingRatio = 1.0f;
+    cvjd.frequencyHz = 100.0f;
+    cvjd.dampingRatio = 10.0f;
 
     // Put the joint thing in our world!
     box2d.world.createJoint(cvjd);
@@ -103,8 +103,7 @@ class Blob {
       Ball p = (Ball) balls.get(i);
       Vec2 pos = box2d.getScreenPos(p.body);
       p.display();
-      Vec2 tmp = new Vec2(mouseX-pos.x, mouseY+pos.y);
-      p.body.setLinearVelocity( tmp..normalize()*1.5 );
+      p.body.setLinearVelocity(new Vec2((mouseX-pos.x) * 0.04, (pos.y - mouseY)*0.04 ) );
     }
   }
 }
