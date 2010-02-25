@@ -53,8 +53,7 @@ void draw() {
   box2d.step();
 
   // Only make more boxes if there are more then 500 living boxes
-  //boxes.size() < 500 && (mousePressed && mouseButton == LEFT && debug) && 
-  if (second() %3 == 0 || (mousePressed && mouseButton == LEFT && debug) ) {
+  if ((second() %3 == 0 || (mousePressed && mouseButton == LEFT && debug)) && boxes.size() < 300 ) {
     Box k;
     if(mousePressed&&mouseButton == LEFT) k = new Box(mouseX, mouseY); else k = new Box(width/2,50);
     boxes.add(k);
